@@ -1,3 +1,8 @@
+# Version: copilot/fix-a6a147c7-f98a-4b48-a70b-200a241061ca
+
+* [#3](https://github.com/jcmrs/claude-ppms/pull/3): feat: Add diagnostics files for autonomous operation audit and compliance
+
+
 # Version: main
 
 * [#3](https://github.com/jcmrs/claude-ppms/pull/3): [WIP] Add autonomous and session diagnostics logs per protocol
