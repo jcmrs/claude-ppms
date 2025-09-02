@@ -1,9 +1,16 @@
-name: Changelog Maintenance
+name: Full Changelog Maintenance
 
 on:
   push:
     branches:
       - main
+      - '**'        # All branches—covers all pushes
+  pull_request:
+    types: [opened, synchronize, closed, merged]
+  merge_group:
+  release:
+    types: [published, edited, released]
+  workflow_dispatch:
 
 jobs:
   update-changelog:
@@ -14,12 +21,12 @@ jobs:
 
       - name: Changelog CI
         uses: saadmk11/changelog-ci@v1.2.0
-        # Optional: Add configuration here if you want to customize output, file path, etc.
+        # Optional: Add configuration for custom output, file path, or formatting
 
       - name: Commit updated CHANGELOG.md
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CHANGELOG.md
-          git commit -m "chore: update CHANGELOG.md [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: auto-update CHANGELOG.md [skip ci]" || echo "No changes to commit"
           git push
