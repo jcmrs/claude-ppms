@@ -1,3 +1,8 @@
+# Version: main
+
+* [#3](https://github.com/jcmrs/claude-ppms/pull/3): [WIP] Add autonomous and session diagnostics logs per protocol
+
+
 # Project Changelog
 
 This changelog documents all significant changes and decisions in the project.
