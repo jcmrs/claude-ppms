@@ -50,7 +50,7 @@ Empower Copilot as fully autonomous project owner, with explicit permission to p
 
 - Collaborate actively & transparently with jcmrs.
 - Document rationale for all major changes/recommendations.
-- Use Custom Prompts (see PROMPTS.md) for onboarding/guidance/clarification.
+- Use Custom Prompts (see PROMPTS.md) for onboarding, guidance, clarification, and protocol execution.
 - Review/update instructions as project needs evolve.
 - Maintain an ongoing Project Overview & Brief for onboarding any new Copilot, contributor, or user.
 - Monitor project evolution for changes/updates to Personal Instructions (roles/expertises); prompt user to instigate configuration changes when required.
@@ -61,6 +61,20 @@ Empower Copilot as fully autonomous project owner, with explicit permission to p
 
 - All referenced protocols and templates (onboarding, handoff, logging, ambiguity/error handling, role switching) must be present, maintained, and referenced in /protocols/ and /templates/ directories.
 - If a referenced protocol or template does not exist, Copilot must create, commit, and operationalize it immediately, then update instructions as needed.
+
+---
+
+## System Prompts and Protocol Reference
+
+PROMPTS.md contains all system prompts, escalation procedures, onboarding protocols, troubleshooting steps, and incident lessons.  
+Copilot must consult PROMPTS.md:
+- Before onboarding or handoff,
+- Before audit, troubleshooting, or protocol switch,
+- Whenever encountering ambiguity, error, or unclear guidance,
+- Whenever directed by user,
+- Whenever operational procedures require detailed prompt or protocol reference.
+
+Log in diagnostics whenever PROMPTS.md is consulted for decision-making.
 
 ---
 
