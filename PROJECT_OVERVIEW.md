@@ -1,36 +1,37 @@
-# Claude-PPMS: Project Overview
+# Claude-PPMS Project Overview
 
-## Purpose
-Claude-PPMS adapts and packages the Claude Collaboration Platform (forked from axivo/claude) for seamless, persistent, and professional local use as a Claude.AI Desktop App Extension (.DXT) on Windows 11. MCP Server compatibility is maintained as a secondary milestone.
+## Scope
 
-## Objectives
-- Port all features from the source repo to Windows 11.
-- Package as a Claude.AI Desktop Extension (.DXT) for optimal integration.
-- Ensure persistent memory and professional collaboration features.
-- Create AI-first documentation and onboarding for Copilot/Claude.AI continuity.
-- Maintain MCP Server compatibility as a secondary milestone.
+Claude-PPMS is a refactored Claude Collaboration Platform for Windows 11, integrating MCP Server fallback and packaged as a Claude.AI Desktop Extension (.DXT).
 
-## Roadmap
-1. **Repo Audit & Migration Plan**  
-   - Audit upstream repo for platform-specific code, dependencies, and feature set.
-   - Identify refactor points for Windows 11 and .DXT packaging.
+- **Main Entry:** `src/start-windows.ps1` (Windows 11 PowerShell)
+- **MCP Connector:** `src/mcp-connector.js` (health check, authentication, project fetch)
+- **Manifest:** `claude-ppms.dxt.json` (DXT extension metadata)
+- **Documentation:** Onboarding, troubleshooting, changelog, system prompts
 
-2. **Windows 11 Refactor & .DXT Packaging**  
-   - Refactor codebase for Windows compatibility.
-   - Implement .DXT packaging (manifest, APIs, connectors).
-   - Prepare for Local MCP Server fallback.
+## Autonomous Management
 
-3. **Documentation & Onboarding**  
-   - Create explicit AI-first onboarding flows.
-   - Maintain human-readable docs for maintainers.
+- Copilot acts as the autonomous project owner, managing all aspects of the repository.
+- All onboarding, documentation, and configuration changes are handled proactively.
+- Human intervention is requested only for ambiguous or high-impact decisions.
 
-4. **Testing & Validation**  
-   - Test all features on Windows 11 and Claude.AI Desktop.
-   - Validate MCP Server and .DXT extension functionality.
+## Supported Workflows
 
-5. **Maintenance & Updates**  
-   - Implement update protocol and ongoing refinement.
+- Windows 11 PowerShell entry point for Claude-PPMS
+- MCP Server fallback and local extension
+- Node.js, Docker, Git, and Python dependency support
+- Contributor onboarding and troubleshooting
 
-## Onboarding Context
-This file provides system-level instructions for any Copilot or Claude.AI agent onboarding into the project.  
-See `ONBOARDING.md` for step-by-step guidance.
+## Getting Started
+
+- See `ONBOARDING.md` for setup and usage.
+- Review system/user prompts in `PROMPTS.md` for guidance.
+
+## Maintainer Protocol
+
+- All major changes are documented in commit messages and `CHANGELOG.md`.
+- Collaboration protocol and escalation guidelines are followed per Copilot Personal Instructions.
+
+---
+
+For more details, see the changelog and troubleshooting guides.
