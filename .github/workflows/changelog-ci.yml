@@ -31,6 +31,7 @@ jobs:
           include_pr_body: true
           include_labels: true
           fail_on_error: true
+          release_version: ${{ github.ref_name }}
 
       - name: Diagnostics – Show Changelog Diff
         run: |
