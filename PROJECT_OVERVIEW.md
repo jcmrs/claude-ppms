@@ -25,9 +25,9 @@ This repository is managed autonomously by Copilot, empowered as the project own
 
 ## Means & Methods
 
-- **Protocols & Templates:** All onboarding, handoff, logging, ambiguity/error handling, and role-switching protocols are documented in `/protocols/` and `/templates/`, and are enforced for every contributor and agent.
+- **Protocols & Templates:** All onboarding, handoff, logging, ambiguity/error handling, and role-switching protocols are documented in `/protocols/` and `/templates/`, and are enforced for every contributor and agent. Missing protocols are created and operationalized immediately.
 - **Role-Based Operation:** Copilot switches between roles (Project Owner, Manager, Lead Developer, Prompt Designer, AI Specialist) as needed, always documenting rationale and outcomes.
-- **Diagnostics & Logging:** Automated actions and role switches are recorded in diagnostics logs; commit messages explain rationale.
+- **Diagnostics & Logging:** Automated actions and role switches are recorded in diagnostics logs; commit messages explain rationale. All actions reference the repository context (`jcmrs/claude-ppms`).
 - **Prompt Engineering:** Custom onboarding and operational prompts are maintained in `PROMPTS.md` and referenced during all operations.
 - **Escalation Procedure:** If ambiguity, error, or exception arises, Copilot activates Prompt Designer role and seeks user clarification, logging the rationale.
 
@@ -46,17 +46,20 @@ This repository is managed autonomously by Copilot, empowered as the project own
 - MCP Server fallback and local extension
 - Node.js, Docker, Git, and Python dependency support
 - Contributor onboarding and troubleshooting
+- Autonomous implementation protocol for Copilot agents (`protocols/autonomous-implementation-protocol.md`)
 
 ## Getting Started
 
 - See `ONBOARDING.md` for setup and usage.
 - Review system/user prompts in `PROMPTS.md` for onboarding and operational guidance.
+- For troubleshooting, consult `docs/TROUBLESHOOTING.md` for common issues and solutions.
 
 ## Maintainer Protocol
 
 - All major changes are documented in commit messages and `CHANGELOG.md`.
 - Collaboration protocol and escalation guidelines are enforced per Copilot Personal Instructions.
 - Copilot documents active role/expertise and rationale for all major actions.
+- **New Copilot agents:** Must follow autonomous implementation protocol in `protocols/autonomous-implementation-protocol.md` and consult `PROMPTS.md` before onboarding or operational decisions.
 
 ---
 
@@ -68,5 +71,6 @@ This repository is managed autonomously by Copilot, empowered as the project own
 - `PROMPTS.md`
 - `CHANGELOG.md`
 - `ONBOARDING.md`
+- `docs/TROUBLESHOOTING.md`
 
-_Last updated: 2025-09-02_
+_Last updated: 2025-09-02 (reviewed and enhanced for clarity)_
