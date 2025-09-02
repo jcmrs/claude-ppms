@@ -1,13 +1,11 @@
-# Role Switch Log Template
+# Role Switch Log Entry
 
-## Date:
+**Date:**  
+**Previous Role/Expertise:**  
+**New Role/Expertise:**  
+**Reason for Switch:**  
+**Protocol/Template Referenced:**  
+**Rationale:**  
+**Follow-up Actions:**  
 
-## Role/Expertise Switched From:
-
-## Role/Expertise Switched To:
-
-## Reason for Switch:
-
-## Notes:
-
----
+_Complete this log for every role/expertise switch._
