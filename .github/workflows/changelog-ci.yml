@@ -1,5 +1,9 @@
 name: Full Changelog Maintenance
 
+permissions:
+  contents: write
+  pull-requests: read
+
 on:
   push:
     branches:
@@ -19,9 +23,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Changelog CI
+      - name: Run Changelog CI
         uses: saadmk11/changelog-ci@v1.2.0
-        # Optional: Add configuration for custom output, file path, or formatting
+        with:
+          changelog_file: CHANGELOG.md     # Output file (default)
+          format: markdown                 # Changelog format
+          include_pr_body: true            # Include PR body in changelog
+          include_labels: true             # Show labels for each PR
+          fail_on_error: true              # Fail workflow on error
+
+      - name: Diagnostics – Show Changelog Diff
+        run: |
+          echo "==== CHANGELOG.md DIFF ===="
+          git diff CHANGELOG.md || echo "No changes detected."
+
+      - name: Diagnostics – List Workflow Status
+        run: |
+          echo "Workflow completed at $(date -u)"
+          git status
 
       - name: Commit updated CHANGELOG.md
         run: |
@@ -30,3 +49,10 @@ jobs:
           git add CHANGELOG.md
           git commit -m "chore: auto-update CHANGELOG.md [skip ci]" || echo "No changes to commit"
           git push
+
+      - name: Diagnostics – Log Success/Failure
+        if: ${{ success() }}
+        run: echo "Changelog CI workflow completed successfully."
+      - name: Diagnostics – Log Failure
+        if: ${{ failure() }}
+        run: echo "Changelog CI workflow failed. Check previous step logs for details."
