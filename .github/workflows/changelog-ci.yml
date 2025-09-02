@@ -1,26 +1,24 @@
-name: Full Changelog Maintenance
+name: Changelog Maintenance (PR Merge & Release)
 
 permissions:
   contents: write
   pull-requests: read
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - main
-      - '**'
-  pull_request:
-    types: [opened, synchronize, closed, merged]
-  merge_group:
   release:
-    types: [published, edited, released]
+    types: [published]
   workflow_dispatch:
 
 jobs:
   update-changelog:
+    if: github.event.pull_request.merged == true || github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run Changelog CI
@@ -31,23 +29,17 @@ jobs:
           committer_email: github-actions[bot]@users.noreply.github.com
           release_version: ${{ github.ref_name }}
 
-      - name: Diagnostics – Show Changelog Diff
+      - name: Show Changelog Diff
         run: |
           echo "==== CHANGELOG.md DIFF ===="
           git diff CHANGELOG.md || echo "No changes detected."
-
-      - name: Diagnostics – List Workflow Status
-        run: |
-          echo "Workflow completed at $(date -u)"
-          git status
 
       - name: Commit updated CHANGELOG.md
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CHANGELOG.md
-          git commit -m "chore: auto-update CHANGELOG.md [skip ci]" || echo "No changes to commit"
-          git push
+          git diff --cached --quiet || (git commit -m "chore: auto-update CHANGELOG.md [skip ci]" && git push)
 
       - name: Diagnostics – Log Success/Failure
         if: ${{ success() }}
