@@ -1,5 +1,9 @@
 name: Full Changelog Maintenance
 
+permissions:
+  contents: write
+  pull-requests: read
+
 on:
   push:
     branches:
@@ -18,10 +22,31 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Diagnostics – Pre-workflow Repository Status
+        run: |
+          echo "==== REPOSITORY STATUS ====" 
+          echo "Workflow started at $(date -u)"
+          git status
+          echo "Current branch: $(git branch --show-current)"
+          echo "Latest commits:"
+          git log --oneline -5
 
       - name: Changelog CI
         uses: saadmk11/changelog-ci@v1.2.0
-        # Optional: Add configuration for custom output, file path, or formatting
+        with:
+          changelog_filename: CHANGELOG.md
+          committer_username: github-actions[bot]
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Diagnostics – Show Changelog Diff
+        run: |
+          echo "==== CHANGELOG.md DIFF ====" 
+          git diff CHANGELOG.md || echo "No changes detected."
 
       - name: Commit updated CHANGELOG.md
         run: |
@@ -29,4 +54,20 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CHANGELOG.md
           git commit -m "chore: auto-update CHANGELOG.md [skip ci]" || echo "No changes to commit"
-          git push
+          git push origin HEAD:${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Diagnostics – Log Success
+        if: success()
+        run: |
+          echo "Changelog CI workflow completed successfully at $(date -u)"
+          echo "Final repository status:"
+          git status
+
+      - name: Diagnostics – Log Failure  
+        if: failure()
+        run: |
+          echo "Changelog CI workflow failed at $(date -u). Check previous step logs for details."
+          echo "Repository status at failure:"
+          git status
