@@ -1,0 +1,5 @@
+changelog:
+  file: CHANGELOG.md
+  format: markdown
+  template: templates/changelog-entry.md
+  log: .github/diagnostics/changelog-ci.log
