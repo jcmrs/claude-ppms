@@ -1,12 +1,11 @@
-name: Changelog Maintenance (PR Merge & Release)
+name: Changelog Maintenance
 
 permissions:
   contents: write
   pull-requests: read
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - main
   release:
@@ -15,10 +14,9 @@ on:
 
 jobs:
   update-changelog:
-    if: github.event.pull_request.merged == true || github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Run Changelog CI
