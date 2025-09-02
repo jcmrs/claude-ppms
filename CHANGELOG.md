@@ -1,3 +1,9 @@
+# Version: main
+
+* [#3](https://github.com/jcmrs/claude-ppms/pull/3): feat: Add diagnostics files for autonomous operation audit and compliance
+* [#4](https://github.com/jcmrs/claude-ppms/pull/4): [WIP] Remove duplicate template files and update naming references to canonical PascalCase format
+
+
 # Project Changelog
 
 This changelog documents all significant changes and decisions in the project.
