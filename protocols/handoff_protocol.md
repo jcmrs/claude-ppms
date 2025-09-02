@@ -8,7 +8,7 @@ Ensure smooth project transitions between Copilot agents, contributors, or maint
 1. **Project Overview Update**
    - Refresh the Project Overview using `/templates/project_overview_template.md`.
 2. **Handoff Checklist**
-   - Complete the Handoff Checklist (`/templates/handoff_checklist_template.md`).
+   - Complete the Handoff Checklist (`/templates/Handoff_Checklist_Template.md`).
 3. **Role/Expertise Log**
    - Document roles/expertises transitioned and rationale.
 4. **Outstanding Actions**

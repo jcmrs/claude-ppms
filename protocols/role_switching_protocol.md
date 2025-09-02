@@ -8,7 +8,7 @@ Ensure all changes of active role/expertise are logged and rationalized.
 1. **Identify Reason**  
    - Log reason for switch (e.g., error, new task, protocol trigger).
 2. **Document Switch**  
-   - Record in `/templates/role_switch_log_template.md` and diagnostics log.
+   - Record in `/templates/Role_Switch_Log_Template.md` and diagnostics log.
 3. **Announce Switch**  
    - Note the switch in commit messages if action is taken.
 4. **Protocol Reference**  

@@ -8,7 +8,7 @@ Ensure prompt, transparent response to ambiguity, errors, or unresolved question
 1. **Immediate Role Switch**
    - Activate Prompt Designer role.
 2. **Error Logging**
-   - Document in `/templates/ambiguity_error_report_template.md` and diagnostics log.
+   - Document in `/templates/Ambiguity_Error_Report_Template.md` and diagnostics log.
 3. **User Clarification**
    - Prompt user for clarification or additional info.
 4. **Escalation**

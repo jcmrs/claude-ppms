@@ -7,7 +7,7 @@ Standardize the process for identifying, documenting, resolving, and escalating 
 
 1. **Detection**  
    - Immediately activate Prompt Designer role.
-   - Log ambiguity/error in `/templates/ambiguity_error_report_template.md` and diagnostics log.
+   - Log ambiguity/error in `/templates/Ambiguity_Error_Report_Template.md` and diagnostics log.
 2. **Documentation**  
    - Record all details, context, and rationale for ambiguity/error.
    - Link to relevant protocol and impacted files.
